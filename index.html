@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фокстрот: Паспорт Бренду</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+	<link rel="stylesheet" href="cursor-animation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        /* Базові налаштування */
+        body {
+            margin: 0;
+            background-color: #000; /* Резервний фон, поки вантажиться відео */
+            font-family: 'Montserrat', sans-serif;
+            cursor: none; /* Приховуємо стандартний курсор */
+            overflow-x: hidden;
+        }
+
+        /* Стилі для фонового відео */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: -1;
+            pointer-events: none; /* Щоб відео не перехоплювало кліки */
+        }
+
+        /* Стилі для кастомного курсора (bat) */
+        .bat {
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            pointer-events: none; /* Щоб курсор не блокував кліки */
+            z-index: 9999;
+            transform: translate(-50%, -50%); /* Центрування відносно миші */
+        }
+
+        
+        
+        /* Налаштування контейнерів слайдів */
+        .slide-wrapper {
+            width: 100%;
+            /* Робимо обгортку вищою за екран, щоб був час для ефекту накладання */
+            height: 150vh; 
+            position: relative;
+        }
+
+        /* Останній слайд має звичайну висоту */
+        .slide-wrapper:last-child {
+            height: 100vh;
+        }
+
+        .slide {
+            position: sticky;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 1000px;
+        }
+
+        /* Внутрішній контент слайда, який буде зменшуватися/збільшуватися */
+        .slide-content {
+            width: 100%;
+            height: 100%;
+            transform-origin: center center;
+            will-change: transform, border-radius, opacity;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.4);
+        }
+
+        /* Кольори бренду */
+        .bg-foxtrot { background-color: #FF5C00; }
+        .text-foxtrot { color: #FF5C00; }
+        
+        /* Скролбар */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #FF5C00; border-radius: 4px; }
+    </style>
+</head>
+<body>
+    <video class="bg-video" autoplay loop muted playsinline>
+        <source src="unknown_2026.06.02-22.02_clip_1_temp.mp4" type="video/mp4">
+        Ваш браузер не підтримує відео тег.
+    </video>
+
+    <div class="bat"></div>
+
+    <main class="relative w-full">
+        
+        <div class="slide-wrapper z-[1]">
+            <div class="slide">
+                <div class="slide-content bg-foxtrot text-white flex flex-col items-center justify-center text-center p-6 relative" 
+                     style="background-image: url('Img1.png');">
+                    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+                    <div class="relative z-10 max-w-4xl mx-auto interactive">
+                        <h1 class="text-6xl md:text-8xl font-extrabold mb-6 uppercase tracking-tighter drop-shadow-lg">Фокстрот</h1>
+                        <h2 class="text-3xl md:text-5xl font-semibold mb-6">Паспорт Бренду</h2>
+                        <div class="w-24 h-1 bg-white mx-auto mb-6 rounded"></div>
+                        <p class="text-xl md:text-2xl font-light opacity-90 leading-relaxed">
+                            Аналіз візуальної ідентифікації, емоційного позиціонування та ринкової екосистеми в Україні
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-wrapper z-[2]">
+            <div class="slide">
+                <div class="slide-content bg-[#111] text-white flex items-center p-8 md:p-20"
+                     style="background-image: url('https://www.techpowerup.com/img/bO3AL5KTjUGaxBRG.jpg'); background-blend-mode: overlay;">
+                    <div class="absolute inset-0 bg-black/80"></div>
+                    <div class="max-w-7xl mx-auto w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                        <div class="interactive">
+                            <img src="foxtrot.jpg" alt="Gadgets" class="w-full rounded-2xl drop-shadow-2xl object-cover h-[500px] bg-white/5 p-4 border border-white/10 backdrop-blur-sm">
+                        </div>
+                        <div>
+                            <h2 class="text-5xl font-extrabold mb-10 text-foxtrot">Візуальна Айдентика</h2>
+                            <div class="space-y-8">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2"></h3>
+                                    <p class="text-gray-400">Логотип «Фокстрот» поєднує сучасний, лаконічний шрифт та впізнаваний графічний елемент — усміхнену лисицю (Фоксі).</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2"></h3>
+                                    <p class="text-gray-400">Цей фірмовий персонаж уособлює кмітливість, дружність, спритність та максимальну орієнтацію на потреби клієнта.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2"></h3>
+                                    <p class="text-gray-400">Головні кольори бренду: помаранчевий (енергія, тепло, інновації) та білий (чистота, прозорість).
+Сучасний візуальний стиль транслює відкритість та технологічність у кожній точці контакту.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-wrapper z-[3]">
+            <div class="slide">
+                <div class="slide-content bg-[#0f172a] text-white flex items-center p-8 md:p-20">
+                    <div class="max-w-7xl mx-auto w-full">
+                        <h2 class="text-5xl font-extrabold mb-12 text-center text-foxtrot">Емоційне Позиціонування</h2>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            
+                            <div class="bg-white/10 p-8 rounded-3xl backdrop-blur-md border border-white/10 hover:-translate-y-2 transition-transform duration-300 interactive">
+                                <div class="text-4xl mb-4">🤝</div>
+                                <h3 class="text-2xl font-bold mb-4">Дружній експерт з техніки</h3>
+                                <p class="text-gray-300">Бренд позиціонує себе як надійного та зрозумілого помічника, який завжди готовий допомогти розібратися у складному світі новітніх технологій.</p>
+                            </div>
+                            
+                            <div class="bg-white/10 p-8 rounded-3xl backdrop-blur-md border border-white/10 hover:-translate-y-2 transition-transform duration-300 interactive">
+                                <div class="text-4xl mb-4">✨</div>
+                                <h3 class="text-2xl font-bold mb-4">Покращення якості життя</h3>
+                                <p class="text-gray-300">Головний емоційний меседж компанії спрямований на те, щоб надихати клієнтів жити яскравіше та комфортніше завдяки правильному вибору техніки.</p>
+                            </div>
+
+                            <div class="bg-white/10 p-8 rounded-3xl backdrop-blur-md border border-white/10 hover:-translate-y-2 transition-transform duration-300 interactive">
+                                <div class="text-4xl mb-4">🌐</div>
+                                <h3 class="text-2xl font-bold mb-4">Омніканальна турбота</h3>
+                                <p class="text-gray-300">Емпатія створює безшовний досвід: клієнт отримує однаково високий рівень емоційної підтримки як під час вибору онлайн, так і в офлайн-магазинах.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-wrapper z-[4]">
+            <div class="slide">
+                <div class="slide-content bg-gray-100 text-gray-900 flex items-center p-8 md:p-20">
+                    <div class="max-w-7xl mx-auto w-full">
+                        <h2 class="text-5xl font-extrabold mb-12 text-center">Екосистема: <span class="text-foxtrot">Конкуренти</span></h2>
+                        <div class="grid md:grid-cols-3 gap-10">
+                            <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow border-t-4 border-red-500 interactive">
+                                <h3 class="text-2xl font-bold mb-4">Прямі конкуренти</h3>
+                                <p class="text-gray-600">Гравці на кшталт Comfy та Eldorado. Основна боротьба ведеться за лідерство в омніканальному ритейлі, частку офлайн-присутності та інновації у клієнтському сервісі.</p>
+                            </div>
+                            <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow border-t-4 border-green-500 interactive">
+                                <h3 class="text-2xl font-bold mb-4">Маркетплейси</h3>
+                                <p class="text-gray-600">Rozetka. Наймасштабніший гравець в українському е-commerce сегменті, який активно змагається за загальний онлайн-трафік та максимальну ширину асортименту.</p>
+                            </div>
+                            <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow border-t-4 border-orange-400 interactive">
+                                <h3 class="text-2xl font-bold mb-4">Нішеві мережі</h3>
+                                <p class="text-gray-600">Мережі типу Цитрус чи Мoyo. Їх фокус зосереджений на портативній електроніці, гаджетах та формуванні емоційного досвіду для молоді.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-wrapper z-[5]">
+            <div class="slide">
+                <div class="slide-content bg-gradient-to-br from-orange-50 to-orange-100 text-gray-900 flex items-center p-8 md:p-20">
+                    <div class="max-w-7xl mx-auto w-full">
+                        <h2 class="text-5xl font-extrabold mb-12 text-center text-foxtrot">Екосистема: Партнери</h2>
+                        <div class="flex flex-col gap-8">
+                            <div class="bg-white p-10 rounded-3xl shadow-lg flex flex-col md:flex-row gap-8 items-center interactive">
+                                <div class="md:w-1/3 text-center">
+                                    <div class="w-24 h-24 bg-orange-100 text-foxtrot rounded-full flex items-center justify-center text-4xl mx-auto mb-4">🛒</div>
+                                </div>
+                                <div class="md:w-2/3">
+                                    <h3 class="text-3xl font-bold mb-4">E-commerce платформи та Маркетплейси</h3>
+                                    <p class="text-lg text-gray-600">Стратегічні кроки включають партнерство з такими майданчиками, як «Алло», Kasta та інтеграція в топомаркет. Ця колаборація дозволяє виходити на нові аудиторії та масштабувати омніканальну стратегію.</p>
+                                </div>
+                            </div>
+                            <div class="bg-white p-10 rounded-3xl shadow-lg flex flex-col md:flex-row-reverse gap-8 items-center interactive">
+                                <div class="md:w-1/3 text-center">
+                                    <div class="w-24 h-24 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-4xl mx-auto mb-4">🚚</div>
+                                </div>
+                                <div class="md:w-2/3 text-right">
+                                    <h3 class="text-3xl font-bold mb-4">Фінансові та логістичні оператори</h3>
+                                    <p class="text-lg text-gray-600">Системна співпраця з банками для надання вигідних умов кредитування. Надійне стратегічне партнерство з топовими поштовими операторами (зокрема «Нова Пошта») гарантує швидку та безпечну доставку.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-wrapper z-[6]">
+            <div class="slide">
+                <div class="slide-content bg-[#111] text-white flex items-center p-8 md:p-20"
+                     style="background-image: url('https://www.techpowerup.com/img/bO3AL5KTjUGaxBRG.jpg'); background-blend-mode: overlay;">
+                    <div class="absolute inset-0 bg-black/80"></div>
+                    <div class="max-w-7xl mx-auto w-full relative z-10 grid md:grid-cols-2 gap-12 items-center">
+                        <div class="interactive">
+                            <img src="foxy-final.png" alt="Gadgets" class="w-full rounded-2xl drop-shadow-2xl object-cover h-[700px] bg-white/5 p-4 border border-white/10 backdrop-blur-sm">
+                        </div>
+                        <div>
+                            <h2 class="text-5xl font-extrabold mb-10 text-foxtrot">Ключові Постачальники</h2>
+                            <div class="space-y-8">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Побутова техніка</h3>
+                                    <p class="text-gray-400">Прямі контракти з глобальними вендорами (Bosch, Gorenje, Beko) гарантують офіційну якість продукції.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Споживча електроніка</h3>
+                                    <p class="text-gray-400">Тісна співпраця з техногігантами (Samsung, Apple, Lenovo) для забезпечення швидкого доступу до новинок.</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-2xl font-bold text-white mb-2">Смарт-рішення</h3>
+                                    <p class="text-gray-400">Постачання інноваційних екосистемних рішень та пристроїв для розумного дому, що відповідають трендам.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-wrapper z-[7]">
+            <div class="slide">
+                <div class="slide-content text-white flex items-center justify-center p-8 md:p-20 relative"
+                     style="background-image: url('https://cdn.freepixel.com/thumb/free-photos-a-network-of-interconnected-lines-and-dots-with-a-dark-background-and-a-mix-of-orange-blue-and-yello-th-1004412173.jpg');">
+                    <div class="absolute inset-0 bg-black/70 backdrop-blur-[2px]"></div>
+                    <div class="relative z-10 max-w-4xl text-center bg-black/40 p-12 rounded-3xl border border-white/20 backdrop-blur-md interactive">
+                        <h2 class="text-5xl font-extrabold mb-6 text-foxtrot">Ринок електроніки України</h2>
+                        <h4 class="text-2xl font-semibold mb-8 text-gray-300">Динаміка та Виклики</h4>
+                        <p class="text-xl leading-relaxed mb-6">
+                            Ринок побутової техніки та електроніки в Україні відрізняється надвисокою конкуренцією та швидким переходом до онлайн-форматів. Споживачі шукають не лише товар, але й максимальну надійність та експертизу.
+                        </p>
+                        <p class="text-xl leading-relaxed mb-6">
+                            Особливим трендом останнього часу став підвищений попит на енергонезалежні рішення (зарядні станції, павербанки) та енергоефективну смарт-техніку.
+                        </p>
+                        <p class="text-xl font-bold text-foxtrot">
+                            Бренд успішно утримує лідерські позиції завдяки гнучкості асортименту та інноваціям.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide-wrapper z-[8]">
+            <div class="slide">
+                <div class="slide-content bg-foxtrot text-white flex flex-col items-center justify-center text-center p-6 relative">
+                    <div class="interactive">
+                        <h2 class="text-7xl font-extrabold mb-8 drop-shadow-md">Дякую за увагу!</h2>
+                        <p class="text-2xl mb-12 opacity-90">Готовий відповісти на ваші запитання щодо презентації.</p>
+                        
+                        <div class="inline-flex gap-8 bg-white/10 px-8 py-4 rounded-full backdrop-blur-sm border border-white/30 text-xl font-semibold">
+                            <a href="https://foxtrot.com.ua" class="hover:text-black transition-colors">foxtrot.com.ua</a>
+                            <span class="opacity-50">|</span>
+                            <a href="mailto:info@foxtrot.com.ua" class="hover:text-black transition-colors">info@foxtrot.com.ua</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        // --- ЛОГІКА КАСТОМНОГО КУРСОРУ (.bat) ---
+        const batCursor = document.querySelector('.bat');
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+        let batX = mouseX;
+        let batY = mouseY;
+
+        // Відстеження позиції миші
+        window.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        // Плавна анімація курсору (Lerp)
+        function animateBat() {
+            // Швидкість слідування (чим менше - тим плавніше)
+            batX += (mouseX - batX) * 0.15;
+            batY += (mouseY - batY) * 0.15;
+            
+            // Центруємо курсор відносно його розмірів
+            batCursor.style.transform = `translate(${batX - 16}px, ${batY - 16}px)`;
+            
+            requestAnimationFrame(animateBat);
+        }
+        animateBat();
+
+
+        // --- ЛОГІКА ПАРАЛАКСУ (ЗМЕНШЕННЯ/ЗБІЛЬШЕННЯ) ---
+        const wrappers = document.querySelectorAll('.slide-wrapper');
+
+        function updateParallax() {
+            const scrollY = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            wrappers.forEach((wrapper) => {
+                // Отримуємо позицію обгортки відносно вікна
+                const rect = wrapper.getBoundingClientRect();
+                const content = wrapper.querySelector('.slide-content');
+                
+                // Якщо rect.top <= 0, значить слайд "прилип" (sticky) до верху екрану, 
+                // і ми зараз прокручуємо всередині його оболонки (яка має висоту 150vh)
+                if (rect.top <= 0 && rect.top > -(rect.height - windowHeight)) {
+                    // Рахуємо прогрес прокрутки для цього конкретного слайду (від 0 до 1)
+                    const progress = Math.abs(rect.top) / (rect.height - windowHeight);
+                    
+                    // Від'їзд назад: плавно зменшуємо поточний слайд до 85%
+                    const scale = 1 - (progress * 0.15);
+                    // Додаємо ефект заокруглення кутів під час зменшення
+                    const borderRadius = progress * 3; // у rem
+
+                    content.style.transform = `scale(${scale})`;
+                    content.style.borderRadius = `${borderRadius}rem`;
+                    content.style.opacity = 1 - (progress * 0.5); // Легке затемнення
+                } 
+                // Якщо слайд з'являється знизу екрану (наїжджає на попередній)
+                else if (rect.top > 0 && rect.top <= windowHeight) {
+                    // Рахуємо прогрес появи (від 0 до 1)
+                    const enterProgress = 1 - (rect.top / windowHeight);
+                    
+                    // Збільшення: плавно виростає з 85% до 100% під час наїзду
+                    const scale = 0.85 + (enterProgress * 0.15);
+                    
+                    content.style.transform = `scale(${scale})`;
+                    content.style.borderRadius = `0`; // Без заокруглення
+                    content.style.opacity = 1;
+                }
+                // Якщо слайд ще далеко внизу
+                else if (rect.top > windowHeight) {
+                    content.style.transform = `scale(0.85)`;
+                }
+                // Скидання стилів, якщо ми ідеально на початку слайду
+                else if (rect.top === 0) {
+                    content.style.transform = `scale(1)`;
+                    content.style.borderRadius = `0`;
+                    content.style.opacity = 1;
+                }
+            });
+        }
+
+        // Слухаємо подію скролу та оновлюємо анімації
+        window.addEventListener('scroll', updateParallax);
+        window.addEventListener('resize', updateParallax);
+        
+        // Початковий виклик
+        updateParallax();
+    </script>
+</body>
+</html>
